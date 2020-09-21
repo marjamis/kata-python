@@ -1,0 +1,8 @@
+{% for stat in stats -%}
+{% if (stats|length) > 1 -%}
+{{stat.name.title()}} | {{stat.value1}} | {{stat.value2}}
+{% else -%}
+{{stat.value1}} | {{stat.value2}}
+{% endif -%}
+{% endfor %}
+Here are ya' stats.
