@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "patterns": {
+    "folder_id": {
+      "type": "string",
+      "description": "",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    }
+  },
+  "definitions": {
+    "notification": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "",
+          "enum": [
+              "chime_webhook",
+              "email"
+          ]
+        },
+        "address": {
+          "type": "string",
+          "description": "The email address to send the notification data to.",
+          "pattern": "^(.*)@(.*)$"
+        },
+        "webhook_url": {
+          "type": "string",
+          "description": "The webhook URL of the Chime chatroom to be used.",
+          "pattern": "^https://hooks.chime.aws/incomingwebhooks/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\?token=[0-9a-zA-Z]{72}$"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "type": { "const": "chime_webhook"}
+          },
+          "required": ["webhook_url"]
+        },
+        {
+          "properties": {
+            "type": { "const": "email"}
+          },
+          "required": ["address"]
+        }
+      ]
+    },
+    "filters": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "$ref": "#/patterns/folder_id"
+        },
+        "statuses": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "type": "string",
+            "enum": [
+                "Assigned",
+                "Work In Progress"
+            ]
+          }
+        }
+      },
+      "anyOf": [{
+        "properties": {
+          "#/type": {"const": "chime_report"}
+        },
+        "required": ["folder_id"]}
+      ]
+    }
+  },
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "description": "",
+        "enum": [
+           "chime_report",
+           "email_report"
+        ]
+      },
+      "name": {
+        "type": "string",
+        "description": ""
+      },
+      "id": {
+        "type": "string",
+        "description": "",
+        "pattern": "^[0-9a-f]{32}$"
+      },
+      "enabled": {
+        "type": "boolean",
+        "description": ""
+      },
+      "description": {
+        "type": "string",
+        "description": ""
+      },
+      "number_to_display": {
+        "type": "integer",
+        "description": "",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "oncall": {
+        "type": "string",
+        "description": ""
+      },
+      "filters": {
+        "$ref": "#/definitions/filters"
+      },
+      "notification": {
+          "$ref": "#/definitions/notification"
+      }
+    },
+    "required": [
+      "description",
+      "enabled",
+      "name",
+      "id",
+      "type"
+    ]
+  }
+}

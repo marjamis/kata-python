@@ -1,0 +1,41 @@
+[
+  {
+    "type": "chime_report2",
+    "description": "test",
+    "enabled": true,
+    "number_to_display": 100,
+    "filters": {
+      "folder_id": "new",
+      "statuses": [
+        "Assigned",
+        "Work In Progres2s"
+      ]
+    },
+    "name": "testa",
+    "notification": {
+      "type": "chime_webhook",
+      "webhook_url": "temp"
+    },
+    "id": "test"
+  },
+  {
+    "type": "chime_r",
+    "description": "test",
+    "enabled": true,
+    "number_to_display": 200,
+    "oncall": "prod",
+    "filters": {
+      "folder_id": "new",
+      "statuses": [
+        "Assigned",
+        "Work In Pes2s"
+      ]
+    },
+    "name": "testa",
+    "notification": {
+      "type": "chime_webhook",
+      "webhook_url": "temp"
+    },
+    "id": "test"
+  }
+]
