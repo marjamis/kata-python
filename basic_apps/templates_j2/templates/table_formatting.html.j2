@@ -1,0 +1,38 @@
+<table class="greyGridTable">
+  <tbody>
+    {% set headers_details = [
+        {
+          'header': '',
+          'key': 'resolver_group',
+        },
+        {
+          'header': 'Number',
+          'key': 'number',
+        },
+        {
+          'header': 'Oldest',
+          'key': 'oldest',
+        },
+        {
+          'header': 'Average age',
+          'key': 'average_age',
+          'suffix': ' days',
+        },
+        {
+          'header': '% older than 14 days',
+          'key': 'percent',
+          'suffix': '%',
+        },
+      ] %}
+    {% for header in headers_details -%}
+    <tr>
+      <td>{{header.header}}</td>
+      {% for summary in summaries -%}
+      <td>{{summary[header.key]|safe}}{{header.suffix if header.suffix}}</td>
+      {% endfor -%}
+    <tr>
+      {% endfor -%}
+    <tr>
+    </tr>
+  </tbody>
+</table>

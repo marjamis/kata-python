@@ -1,0 +1,3 @@
+{% for user in users | sort(attribute='username') -%}
+* [{{user.username.title()}}]({{ user.url}}). A replace {{user.url | replace('https://', ['<a href="', user.url, '">', user.username.title(), '</a>']| join) | safe}} 
+{% endfor -%}

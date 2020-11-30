@@ -1,0 +1,19 @@
+## Stats
+{% include 'stats.md.j2' %}
+
+## {{ title }}
+{% include 'links.md.j2' %}
+
+## Additional
+{% for user in nousers -%}
+* [{{ user.username }}]({{ user.url }})
+{% else -%}
+There are no enteries.
+{% endfor -%}
+
+{% if nousers %}
+## Check
+{% for user in users -%}
+* [{{ user.username.title() }}]({{ user.url }})
+{% endfor -%}
+{% endif %}
