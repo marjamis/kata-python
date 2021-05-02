@@ -5,6 +5,7 @@ from aws_cdk import (
 )
 
 class WaitConditionWithDataConstruct(core.Construct):
+
   def getWaitHandle(self):
     return self._h
 

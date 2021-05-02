@@ -1,5 +1,5 @@
 {
-  "app": "python3.6 app.py",
+  "app": "python3.6 src/app.py",
   "context": {
     "@aws-cdk/core:enableStackNameDuplicates": "true",
     "aws-cdk:enableDiffNoFail": "true"
