@@ -19,6 +19,7 @@
         <td>{{summary['oldest']}} days{% if "previous" in summary %} ({{summary['oldest']|TrendIconAvsB(summary['previous']['oldest'])}} {{summary['previous']['oldest']}} days){% endif %}</td>
         <td>{{summary['average_age']}} days{% if "previous" in summary %} ({{summary['average_age']|TrendIconAvsB(summary['previous']['average_age'])}} {{summary['previous']['average_age']}} days){% endif %}</td>
         <td>{{summary['percent']}} %{% if "previous" in summary %} ({{summary['percent']|TrendIconAvsB(summary['previous']['percent'])}} {{summary['previous']['percent']}} %){% endif %}</td>
+        <td>{% if "previous" in summary %}{{summary['percent']|ComparedString(summary['previous']['percent'], '%')}}{% else %}{{summary['percent']}}{% endif %}</td>
       </tr>
       {% endfor -%}
     </tbody>

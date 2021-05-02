@@ -26,6 +26,7 @@ class TemplateEngine():
         'TABLE': 'table_formatting.html.j2',
         'SLACK': 'tickets.slack.j2',
         'TABLE_FROM_DICT': 'tableFromDictionary.txt.j2',
+        'TEMP': 'temp.json.j2',
     }
 
     def __init__(self):
@@ -36,6 +37,7 @@ class TemplateEngine():
         )
         # Adds a filter for the Jinja environment
         self.env.filters['TrendIconAvsB'] = TrendIconAvsBFilter
+        self.env.filters['ComparedString'] = ComparedString
         self.env.filters['SlackTableListGenerator'] = SlackTableListGeneratorFilter
         self.env.filters['SlackTableDictGenerator'] = SlackTableDictGeneratorFilter
 
@@ -57,6 +59,8 @@ class TemplateEngine():
         except Exception as e:
             raise
 
+def ComparedString(a, b, suffix=''):
+    return f'{a}{suffix} ({TrendIconAvsBFilter(a, b)} {b}{suffix})'
 
 def TrendIconAvsBFilter(a, b):
     if a > b:
@@ -151,7 +155,7 @@ def main():
     except TemplateNotFound as e:
         print(e.message)
     except Exception as e:
-        print("There was an unknown exception of type {e}", type(e).__name__)
+        print(f'There was an unknown exception of type "{type(e).__name__}": "{e}"')
 
     print("---\n\n### Class based template - Working")
     try:

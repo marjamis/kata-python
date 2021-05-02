@@ -1,3 +1,20 @@
+TEMP = {
+      'stats': {
+        'groups': {
+          't1': {
+            'current': {
+              'Total': 2,
+            }
+          },
+          't2': {
+            'current': {
+              'Total': 4,
+            }
+          }
+        }
+      }
+  }
+
 TEST_CONTEXT = {
     "title": "Title",
     "users": [
