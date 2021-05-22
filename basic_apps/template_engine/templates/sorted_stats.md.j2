@@ -1,0 +1,9 @@
+# Sorting elements as list
+{% for stat in stats_as_list | sort(attribute='size')-%}
+{{stat.size}}
+{% endfor %}
+
+# Sorting elements as dict
+{% for k, v in stats_as_dict.items() | sort(attribute='1.size')-%}
+{{v.size}}
+{% endfor %}

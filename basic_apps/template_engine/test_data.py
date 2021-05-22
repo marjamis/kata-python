@@ -1,21 +1,4 @@
-TEMP = {
-      'stats': {
-        'groups': {
-          't1': {
-            'current': {
-              'Total': 2,
-            }
-          },
-          't2': {
-            'current': {
-              'Total': 4,
-            }
-          }
-        }
-      }
-  }
-
-TEST_CONTEXT = {
+GENERAL_TEST_CONTEXT = {
     "title": "Title",
     "users": [
         {
@@ -27,36 +10,34 @@ TEST_CONTEXT = {
             'url': 'https://amazon.com',
         },
     ],
-    'stats': [
+    'stats_as_list': [
         {
             'name': 'A',
-            'value1': 20,
-            'value2': 30,
+            'size': 2000,
         },
         {
             'name': 'B',
-            'value1': 202,
-            'value2': 310,
+            'size': 202,
         }
-    ]}
-
-TABLE_TEST_CONTEXT = {
+    ],
+    'stats_as_dict': {
+        'A': {
+            'size': 3000,
+        },
+        'B': {
+            'size': 4,
+        }
+    },
     'summaries': [
         {
-            'resolver_group': 'Total',
-            'previous': {
-                'number': 2,
-                'oldest': 11,
-                'average_age': 10,
-                'percent': 1,
-            },
+            'group': 'Total',
             'number': 3,
             'oldest': 8,
             'average_age': 10.32,
             'percent': 1,
         },
         {
-            'resolver_group': 'New',
+            'group': 'New',
             'number': 5,
             'oldest': 6,
             'average_age': 7,

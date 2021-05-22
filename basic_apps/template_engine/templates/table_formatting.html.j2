@@ -14,7 +14,7 @@
       </tr>
       {% for summary in summaries -%}
       <tr>
-        <td>{{summary['resolver_group']}}</td>
+        <td>{{summary['group']}}</td>
         <td>{{summary['number']}}{% if "previous" in summary %} ({{summary['number']|TrendIconAvsB(summary['previous']['number'])}} {{summary['previous']['number']}}){% endif %}</td>
         <td>{{summary['oldest']}} days{% if "previous" in summary %} ({{summary['oldest']|TrendIconAvsB(summary['previous']['oldest'])}} {{summary['previous']['oldest']}} days){% endif %}</td>
         <td>{{summary['average_age']}} days{% if "previous" in summary %} ({{summary['average_age']|TrendIconAvsB(summary['previous']['average_age'])}} {{summary['previous']['average_age']}} days){% endif %}</td>
