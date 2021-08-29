@@ -65,3 +65,17 @@ SLACK_TEST_CONTEXT = {
         'old': 7,
     }
 }
+
+DICT_SORTING = {
+    "listing": [
+        {
+            "Value": "Here I am",
+        },
+        {
+            "Value": "Am I here?",
+        },
+        {
+            "Value": "Yes I am!",
+        },
+    ],
+}

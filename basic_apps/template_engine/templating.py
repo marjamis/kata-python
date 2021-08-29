@@ -21,6 +21,7 @@ class TemplateEngine():
         'BASE': 'base.md.j2',
         'TABLE_BASIC': 'table_formatting.html.j2',
         'TABLE_CUSTOM_FUNCTION': 'table_formatting_custom_global_function.md.j2',
+        'DICT_SORTING': 'dict_sorting.md.j2',
     }
 
     def __init__(self):
