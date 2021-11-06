@@ -26,6 +26,8 @@ class AlienInvasion:
         # self.settings.screen_height = self.screen.get_rect().height
 
         pygame.display.set_caption("Alien Invasion")
+        icon = pygame.image.load("./media/processed/alien.png")
+        pygame.display.set_icon(icon)
 
         # Create an instance to store game statistics and create a scoreboard.
         self.stats = GameStats(self)
