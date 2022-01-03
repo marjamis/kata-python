@@ -5,11 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Launch Alien Invasion",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
+            "program": "${workspaceFolder}/basic_apps/alien_invasion/main.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/basic_apps/alien_invasion",
+            "python": "${workspaceFolder}/basic_apps/alien_invasion/.env/bin/python3.6"
         }
     ]
 }

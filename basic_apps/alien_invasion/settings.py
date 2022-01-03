@@ -36,8 +36,6 @@ class Settings:
         # fleet_direction of 1 represents right; -1 represents left.
         self.fleet_direction = 1
 
-        self._print_settings()
-
         # Scoring
         self.alien_points = 50
 
@@ -46,8 +44,6 @@ class Settings:
         self.ship_speed *= self.speedup_scale
         self.bullet_speed *= self.speedup_scale
         self.alien_speed *= self.speedup_scale
-
-        self._print_settings()
 
     def _print_settings(self):
         print(f'Ship speed: {self.ship_speed} - Bullet speed: {self.bullet_speed} - Alien speed: {self.alien_speed}\n')
