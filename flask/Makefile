@@ -11,7 +11,7 @@ helper: # Adapted from: https://marmelab.com/blog/2016/02/29/auto-documented-mak
 	@grep -hE '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 command:
-	cd src; ENV=$(FLASK_ENV) FLASK_APP="hello" flask run $(OPTIONS)
+	cd example; ENV=$(FLASK_ENV) FLASK_APP="hello" flask run $(OPTIONS)
 
 test: ## Builds and then runs tests against the application
 
