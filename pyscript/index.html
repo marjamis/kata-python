@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>d3: JavaScript & PyScript visualizations side-by-side</title>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <style>
+        .loading {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: black;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <py-env>
+        - paths:
+            - ./mine.py
+    </py-env>
+</head>
+
+<body>
+    <h1>PyScript</h1>
+    <b>Based on <i><a href="https://observablehq.com/@d3/learn-d3-shapes?collection=@d3/learn-d3>">Learn D3: Shapes</a></i> tutorial</b>
+    <div>
+        <div id="py" style="width: 400px; height: 400px">
+            <div class="loading"></div>
+        </div>
+    </div>
+
+    <script type="importmap">
+        { "imports": { "d3": "https://cdn.skypack.dev/d3@7" } }
+    </script>
+
+    <py-script>
+        import mine
+        
+        mine.update()
+    </py-script>
+
+    <h1>Examples</h1>
+    <ul>
+        <li>
+            <p>
+                print(mine.fruits) </br>
+                mine.fruits[0]['count'] = 150 </br>
+                mine.update() </br>
+                print(mine.fruits) </br>
+            </p>
+        </li>
+    </ul>
+
+    <py-box widths="2/3;1/3">
+        <py-repl id="my-repl" auto-generate="true" std-out="output" std-err="err-div"> </py-repl>
+        <div id="output" class="p-4"></div>
+    </py-box>
+    <footer id="err-div" class="bg-red-700 text-white text-center border-t-4 border-green-500 fixed inset-x-0 bottom-0 p-4 hidden">
+
+</body>
+
+</html>
